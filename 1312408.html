@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="cv">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>1312408 - CV</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <script type="text/javascript" src="js/angular.js"></script>
+    
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+
+    <!-- Angular modules -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/cvsections.js"></script>
+	
+	<!--Firebase -->
+	<script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
+</head>
+
+<body ng-controller="CurriculumCtrl as cv">		
+		<div ng-show="cv.showLogIn"class="row">
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			<h1 class="page-header text-center">My CV</h1>
+			<form action="">
+				Email:
+				<input ng-model="cv.email" class="form-control"></input>
+				<br>
+				Password:			
+				<input ng-model="cv.password" class="form-control" type="password"></input>
+			</form>
+			<p class="page-header text-center">
+				<button ng-click="cv.logIn()">Log In</button>
+				<button ng-click="cv.register()">Register</button>
+			</p>
+			<div class="text-red-color">
+				<p class="text-center">{{cv.message}}</p>
+			</div>
+		</div>
+	</div>
+    <div ng-show="cv.showWeb" class="container" >
+        <!-- Header -->
+        <section>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <h1 class="page-header text-center">My CV </h1>
+					<p style="float:right" ng-click="cv.logOut()"><a href="">Log Out</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal info -->
+        <cv-info></cv-info>
+
+        <!-- Summary -->
+        <cv-summary></cv-summary>
+
+        <!-- Work experiences -->
+        <cv-experiences></cv-experiences>
+
+        <!-- Projects -->
+        <cv-projects></cv-projects>
+
+        <!-- Skills -->
+        <cv-skills></cv-skills>
+		
+        <!-- Education -->
+        <cv-education></cv-education>
+
+        <!-- Social contacts -->
+        <hr>
+        <cv-social-contacts></cv-social-contacts>
+    </div>
+</body>
+
+</html>
