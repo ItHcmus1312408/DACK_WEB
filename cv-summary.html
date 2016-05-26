@@ -10,8 +10,7 @@
 	
 	<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 		<h3 class="text-right">
-			<a class="" href ng-click="summaryCtrl.show()"><i class="fa fa-angle-down" ng-hide="summaryCtrl.toggle"></i></a>
-			<a class="" href ng-click="summaryCtrl.hide()"><i class="fa fa-angle-up" ng-show="summaryCtrl.toggle"></i></a> 
+			<a class="" href ng-click="myCssVar='css-class'"><i class="fa fa-angle-down"></i></a>
 		</h3>
 	</div>
 	
@@ -25,7 +24,7 @@
 	
     <div class="row" ng-repeat="sum in cv.summary" ng-show="!summaryCtrl.toggle">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <p class="text-justify">{{sum.content}}</p>
+                    <p ng-class="myCssVar" class="text-justify">{{sum.content}}</p>
             </div>
         </div>
     </div>
