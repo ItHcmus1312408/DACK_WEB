@@ -14,7 +14,7 @@
 			cv.message = "";
 			
 			cv.logIn = function(){
-				ref.authWithPassword({
+				/*ref.authWithPassword({
 				  email    : cv.email,
 				  password : cv.password
 				}, function(error, authData) {
@@ -32,7 +32,37 @@
 					cv.showWeb = true;
 					cv.showLogIn = false;
 				  }
+				});*/
+				/*ref.authWithOAuthPopup("google", function(error, authData) {
+					if (error) {
+						console.log("Login Failed!", error);
+					} else {
+						console.log("Authenticated successfully with payload:", authData);
+					}
+				});*/
+				/*$scope.authObj = $firebase(ref);
+				$scope.loginWithGoogle = function(){
+					$scope.authObj.$authWithOAuthPopup("google").then(function(authData){
+						console.log("Logged in as:", authData.uid);
+					}).catch(function(error){
+						console.error("Authentication failed:", error);
+					});
+					
+				}*/
+				var auth = new FirebaseSimpleLogin(ref, function(error, user) {
+					if (error) {
+    // an error occurred while attempting login
+						alert(error);
+					} else if (user) {
+    // user authenticated with Firebase
+						alert('User ID: ' + user.id + ', Provider: ' + user.provider);
+					} else {
+    // user is logged out
+					}
 				});
+
+// attempt to log the user in with your preferred authentication provider
+				auth.login('<provider>');
 			}
 			
 			cv.logOut = function(){
