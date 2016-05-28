@@ -1,4 +1,5 @@
 (function() {
+	var appAni = angular.module('cv',['ngAnimate']);
 
     var app = angular.module('cv', ['cv-sections']);
 	

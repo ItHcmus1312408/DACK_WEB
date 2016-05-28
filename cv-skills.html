@@ -1,12 +1,12 @@
 <div class="row" ng-show="cv.skills">
-    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-        <h3><i class="fa fa-trophy text-grey-color"></i> Skills</h3>
-    </div>
-    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <h3 ng-hide="cv.skills_disabled" class="text-right">
+	<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+		<h3><i class="fa fa-trophy text-grey-color"></i> Skills</h3>
+	</div>
+	<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+		<h3 ng-hide="cv.skills_disabled" class="text-right">
 			<img ng-click="cv.skills_Add()" src="./img/add.png" alt="Add-icon" style="width:20px;cursor:pointer"></img>      
-        </h3>
-    </div>
+		</h3>
+	</div>
 	
 	<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 		<h3 class="text-right">
@@ -25,16 +25,16 @@
 		<button ng-click="cv.skills_cancel()">Cancel</button>
 	</div>
 	
-    <div class="row" ng-repeat="skill in cv.skills" ng-show="!skillsCtrl.toggle">
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-            <i class="fa fa-angle-right"></i> {{skill.name}}
-        </div>
-        <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-            <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="{{skill.level * 10}}" aria-valuemin="0" aria-valuemax="100" style="width: {{skill.level * 10}}%;">
-                    {{skill.level * 10}}%
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="row" ng-repeat="skill in cv.skills" ng-show="!skillsCtrl.toggle">
+		<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+			<i class="fa fa-angle-right"></i> {{skill.name}}
+		</div>
+		<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+			<div class="progress">
+				<div class="progress-bar" role="progressbar" aria-valuenow="{{skill.level * 10}}" aria-valuemin="0" aria-valuemax="100" style="width: {{skill.level * 10}}%;">
+					{{skill.level * 10}}%
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

@@ -2,8 +2,9 @@
 .text-grey-color {color: gray;}
 .footer {margin-bottom: 40px;}
 
+
 .css-class, .css-class-add, .css-class-remove {
-  transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 10s;
+  transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 5s;
 }
 
 .css-class,
@@ -11,10 +12,27 @@
   color: red;
   font-size:3em;
 }
-
 .css-class-remove.css-class-remove-active {
   font-size:1.0em;
   color: black;
+}
+
+
+
+
+
+
+
+
+
+.abc{
+  transition: all linear 10s;
+  background-color: lightblue;
+  height: 100px;
+}
+
+.ng-nhi {
+  height: 0px;
 }
 
 
