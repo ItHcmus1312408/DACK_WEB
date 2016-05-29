@@ -40,10 +40,10 @@
 				<input ng-model="cv.password" class="form-control" type="password"></input>
 			</form>
 			<p class="page-header text-center">
-				<button ng-click="cv.logIn()">Log In</button>
-				<button ng-click="cv.logInGG()">Log In with Google</button>
-				<button ng-click="cv.logInFB()">Log In with Facebook</button>
-				<button ng-click="cv.register()">Register</button>
+				<button ng-click="cv.logIn()" style="height:30px">Log In</button>
+				<button ng-click="cv.register()" style="height:30px">Register</button>
+				<img ng-click="cv.logInGG()"" src="./img/gg.png" style="cursor:pointer"></img>
+				<img ng-click="cv.logInFB()"" src="./img/fb.png" style="cursor:pointer"></img>
 			</p>
 			<div class="text-red-color">
 				<p class="text-center">{{cv.message}}</p>
