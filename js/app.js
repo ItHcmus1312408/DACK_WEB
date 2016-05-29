@@ -38,19 +38,39 @@
 			}
 			
 			cv.logInGG = function(){
-				ref.authWithOAuthPopup("google", function(error, authData) {
-					cv.personal_informations = $firebase(ref.child('personal_informations')).$asObject();
-					cv.summary = $firebase(ref.child('summary')).$asObject();
-					cv.experiences = $firebase(ref.child('experiences')).$asArray();
-					cv.projects = $firebase(ref.child('projects')).$asArray();
-					cv.skills = $firebase(ref.child('skills')).$asArray();
-					cv.education = $firebase(ref.child('education')).$asArray();
-					cv.showWeb = true;
-					cv.showLogIn = false;
-					}, {
-					remember: "sessionOnly",
-					scope: "email"
-				});
+			    ref.authWithOAuthPopup("google", function (error, authData) {
+			        if (error) {
+			            //cv.message = "Login Failed!" + error;
+			        } else {
+			            //console.log("Authenticated successfully with payload:", authData);
+			            cv.personal_informations = $firebase(ref.child('personal_informations')).$asObject();
+			            cv.summary = $firebase(ref.child('summary')).$asObject();
+			            cv.experiences = $firebase(ref.child('experiences')).$asArray();
+			            cv.projects = $firebase(ref.child('projects')).$asArray();
+			            cv.skills = $firebase(ref.child('skills')).$asArray();
+			            cv.education = $firebase(ref.child('education')).$asArray();
+			            cv.showWeb = true;
+			            cv.showLogIn = false;
+			        }
+			    });
+			}
+			
+			cv.logInFB = function(){
+			    ref.authWithOAuthPopup("facebook", function (error, authData) {
+			        if (error) {
+			            //cv.message = "Login Failed!" + error;
+			        } else {
+			            //console.log("Authenticated successfully with payload:", authData);
+			            cv.personal_informations = $firebase(ref.child('personal_informations')).$asObject();
+			            cv.summary = $firebase(ref.child('summary')).$asObject();
+			            cv.experiences = $firebase(ref.child('experiences')).$asArray();
+			            cv.projects = $firebase(ref.child('projects')).$asArray();
+			            cv.skills = $firebase(ref.child('skills')).$asArray();
+			            cv.education = $firebase(ref.child('education')).$asArray();
+			            cv.showWeb = true;
+			            cv.showLogIn = false;
+			        }
+			    });
 			}
 			
 			cv.logOut = function(){
