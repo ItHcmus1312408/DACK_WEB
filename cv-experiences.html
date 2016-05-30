@@ -1,21 +1,22 @@
 <div class="row" ng-show="cv.experiences">
-    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-        <h3><i class="fa fa-lightbulb-o text-grey-color"></i> Experience</h3>
-    </div>
-    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-        <h3 ng-hide="cv.expJob_disabled" class="text-right">
-			<img ng-click="cv.expJob_Add()" src="./img/add.png" alt="Add-icon" style="width:20px;cursor:pointer"></img>      
-        </h3>
-    </div>
-	
+	<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+		<h3><i class="fa fa-lightbulb-o text-grey-color"></i> Experience</h3>
+	</div>
 	<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-		<h3 class="text-right">
-			<a class="" href ng-click="experiencesCtrl.show()"><i class="fa fa-angle-down" ng-hide="experiencesCtrl.toggle"></i></a>
-			<a class="" href ng-click="experiencesCtrl.hide()"><i class="fa fa-angle-up" ng-show="experiencesCtrl.toggle"></i></a> 
+		<h3 ng-hide="cv.expJob_disabled" class="text-right">
+			<img ng-click="cv.expJob_Add()" src="./img/add.png" alt="Add-icon" style="width:20px;cursor:pointer"></img>      
 		</h3>
 	</div>
 	
-    <div ng-show="cv.expJob_disabled">
+	<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+		<h3 class="text-right">
+			<!--<a class="" href ng-click="experiencesCtrl.show()"><i class="fa fa-angle-down" ng-hide="experiencesCtrl.toggle"></i></a>
+			<a class="" href ng-click="experiencesCtrl.hide()"><i class="fa fa-angle-up" ng-show="experiencesCtrl.toggle"></i></a>-->
+			<a class="" data-toggle="collapse" data-parent="#accordion" href="#collapseOneExperience" aria-expanded="false" aria-controls="collapseOne"><i class="fa fa-angle-down"></i></a>
+		</h3>
+	</div>
+	
+	<div ng-show="cv.expJob_disabled">
 		<span>Job Position: </span>
 		<input ng-model="cv.expJob_text" ng-show="cv.expJob" class="form-control">
 		<span>Company Name: </span>
@@ -32,7 +33,7 @@
 		or
 		<button ng-click="cv.expJob_cancel()">Cancel</button>
 	</div>
-    <div class="row" ng-repeat="exp in cv.experiences | orderBy:'-to_date'"  ng-show="!experiencesCtrl.toggle">
+    <!--<div class="row" ng-repeat="exp in cv.experiences | orderBy:'-to_date'"  ng-show="!experiencesCtrl.toggle">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -48,5 +49,26 @@
                 </div>
             </div>
         </div>
+    </div>-->
+    <div class="row" ng-repeat="exp in cv.experiences | orderBy:'-to_date'">
+    	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    		<div id="collapseOneExperience" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+    			<div class="panel-body">
+    				<div class="panel panel-default">
+    					<div class="panel-heading">
+    						<h3 class="panel-title">{{exp.job_position}}</h3>
+    					</div>
+    					<div class="panel-body">
+    						<span>
+    							<strong><a href="{{exp.company.url}}" target="_blank">{{exp.company.name}}</a>
+    							</strong>
+    						</span>
+    						<span class="text-grey-color">({{exp.from_date | date : 'dd/MM/yyyy'}} to {{exp.to_date | date : 'dd/MM/yyyy'}})</span>
+    						<p class="text-justify">{{exp.job_description}}</p>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
     </div>
 </div>

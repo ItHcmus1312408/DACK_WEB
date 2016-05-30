@@ -26,9 +26,18 @@
 		<button ng-click="cv.summary_cancel()">Cancel</button>
 	</div>
 
-	<div class="row" ng-repeat="sum in cv.summary" id="collapseOne" class="collapse" aria-labelledby="headingOne">
+	<!--<div class="row" ng-repeat="sum in cv.summary" id="collapseOne" class="collapse" aria-labelledby="headingOne">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="panel-body" ng-class="myCssVar" class="text-justify">{{sum.content}}</div>
+        </div>
+    </div>-->
+    <div class="row" ng-repeat="sum in cv.summary">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+              <div class="panel-body">
+                <div ng-class="myCssVar" class="text-justify">{{sum.content}}</div>
+              </div>
+            </div>
         </div>
     </div>
 </div>
