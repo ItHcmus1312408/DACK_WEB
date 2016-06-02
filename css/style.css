@@ -35,4 +35,15 @@
   height: 0px;
 }
 
+#abc {
+	background-image: url("mountain.jpg");
+	/*background-color: #7FFFD4;*/
+}
 
+#xyz {
+	background-color: #B0C4DE;
+}
+
+#mnp{
+	background-color: #F0FFFF; 
+}
