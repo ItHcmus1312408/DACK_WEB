@@ -149,7 +149,7 @@
 							'phone_number': cv.infoPhone,
 							'social_contact': ""
 					};
-					cv.informations.personal_infomations.push(data);
+					cv.personal_infomations.push(data);
 					cv.info_cancel();
 				}
 			};
@@ -241,7 +241,7 @@
 					data = {
 						'content': cv.summary_text
 					}
-					cv.informations.summary.push(data);	
+					cv.summary.push(data);	
 					cv.summary_cancel();
 				}
 			};
@@ -266,8 +266,7 @@
 						'name': cv.skill_text,
 						'level': cv.skillLevel_text,
 					};
-					cv.informations.skills.push(data);
-					
+					cv.skills.push(data);	
 					cv.skills_cancel();
 				}
 			};
@@ -326,7 +325,7 @@
 						'to_date': cv.educationToDate_text,
 						'notes': ""
 					};
-					cv.informations.education.push(data);
+					cv.education.push(data);
 					
 					cv.education_cancel();
 				}
@@ -432,7 +431,7 @@
 						'from_date': cv.projectFromDate_text,
 						'url': "http://"
 					};
-					cv.informations.projects.push(data);
+					cv.projects.push(data);
 					
 					cv.Project_cancel();
 				}
@@ -515,7 +514,7 @@
 						'to_date': cv.expToDate_text,
 						'job_description': cv.expDetail_text
 					};
-					cv.informations.experiences.push(data);
+					cv.experiences.push(data);
 					
 					cv.expJob_cancel();
 				}
