@@ -241,7 +241,10 @@
 					data = {
 						'content': cv.summary_text
 					}
-					cv.informations.summary.push(data);	
+					//cv.informations.summary.push(data);
+					var abc = new Firebase("https://curriculumvitae.firebaseio.com");
+					var postsRef = abc.child("summary");
+  					var newPostRef = postsRef.push(data);
 					cv.summary_cancel();
 				}
 			};
@@ -266,8 +269,10 @@
 						'name': cv.skill_text,
 						'level': cv.skillLevel_text,
 					};
-					cv.informations.skills.push(data);
-					
+					//cv.informations.skills.push(data);
+					var abc = new Firebase("https://curriculumvitae.firebaseio.com");
+					var postsRef = abc.child("skills");
+  					var newPostRef = postsRef.push(data);
 					cv.skills_cancel();
 				}
 			};
@@ -326,8 +331,10 @@
 						'to_date': cv.educationToDate_text,
 						'notes': ""
 					};
-					cv.informations.education.push(data);
-					
+					//cv.education.push(data);
+					var abc = new Firebase("https://curriculumvitae.firebaseio.com");
+					var postsRef = abc.child("education");
+  					var newPostRef = postsRef.push(data);
 					cv.education_cancel();
 				}
 			};
@@ -432,8 +439,10 @@
 						'from_date': cv.projectFromDate_text,
 						'url': "http://"
 					};
-					cv.informations.projects.push(data);
-					
+					//cv.informations.projects.push(data);
+					var abc = new Firebase("https://curriculumvitae.firebaseio.com");
+					var postsRef = abc.child("projects");
+  					var newPostRef = postsRef.push(data);
 					cv.Project_cancel();
 				}
 			};
@@ -515,8 +524,10 @@
 						'to_date': cv.expToDate_text,
 						'job_description': cv.expDetail_text
 					};
-					cv.informations.experiences.push(data);
-					
+					//cv.informations.experiences.push(data);
+					var abc = new Firebase("https://curriculumvitae.firebaseio.com");
+					var postsRef = abc.child("experiences");
+  					var newPostRef = postsRef.push(data);
 					cv.expJob_cancel();
 				}
 			};
