@@ -29,4 +29,14 @@
   height: 0px;
 }
 
+#imlogin {
+	background-image: url("mountain.jpg");
+}
 
+#cl1 {
+	background-color: #ADD8E6;
+}
+
+#cl2 {
+	background-color: #F0FFFF;
+}

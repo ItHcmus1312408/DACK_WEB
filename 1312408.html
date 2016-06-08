@@ -28,9 +28,9 @@
 </head>
 
 <body ng-controller="CurriculumCtrl as cv">		
-		<div ng-show="cv.showLogIn" class="row">
+		<div ng-show="cv.showLogIn" class="row" id="imlogin">
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" >
 			<h1 class="page-header text-center">My CV</h1>
 			<form action="">
 				Email:
@@ -63,8 +63,11 @@
         </section>
 
         <!-- Personal info -->
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="cl1">
         <cv-info></cv-info>
+        </div>
 
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="cl2">
         <!-- Summary -->
         <cv-summary></cv-summary>
 
@@ -79,6 +82,7 @@
 		
         <!-- Education -->
         <cv-education></cv-education>
+        </div>
 
         <!-- Social contacts -->
         <hr>
