@@ -73,6 +73,24 @@
 			    });
 			}
 			
+			cv.logInTW = function(){
+			    ref.authWithOAuthPopup("twitter", function (error, authData) {
+			        if (error) {
+			            //cv.message = "Login Failed!" + error;
+			        } else {
+			            //console.log("Authenticated successfully with payload:", authData);
+			            cv.personal_informations = $firebase(ref.child('personal_informations')).$asObject();
+			            cv.summary = $firebase(ref.child('summary')).$asObject();
+			            cv.experiences = $firebase(ref.child('experiences')).$asArray();
+			            cv.projects = $firebase(ref.child('projects')).$asArray();
+			            cv.skills = $firebase(ref.child('skills')).$asArray();
+			            cv.education = $firebase(ref.child('education')).$asArray();
+			            cv.showWeb = true;
+			            cv.showLogIn = false;
+			        }
+			    });
+			}
+			
 			cv.logOut = function(){
 				cv.showWeb = false;
 				cv.showLogIn = true;
