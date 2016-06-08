@@ -1,4 +1,4 @@
-(function() {
+﻿(function() {
 	var appAni = angular.module('cv',['ngAnimate']);
 
     var app = angular.module('cv', ['cv-sections']);
@@ -225,7 +225,7 @@
 				cv.infoPhone_text = data;
 			};
 			
-			//-----EDIT SUMMARY------------
+			//-----ADD SUMMARY------------
 			cv.summary_disabled = false;
 			cv.summary_Add = function() {
 				cv.summary_disabled = true;
@@ -238,15 +238,46 @@
 				if(angular.equals(cv.summary_text, ""))
 					cv.summary_cancel();
 				else{
-					data = {
-						'content': cv.summary_text
-					}
+				    data = {
+				        'content' : cv.summary_text
+				    }
 					//cv.informations.summary.push(data);
 					var abc = new Firebase("https://curriculumvitae.firebaseio.com");
 					var postsRef = abc.child("summary");
   					var newPostRef = postsRef.push(data);
 					cv.summary_cancel();
 				}
+			};
+
+		    //EDIT SUMMARY
+			
+			cv.summaryEdit_disabled = false;
+			cv.summary_Edit = function () {
+			    cv.summaryEdit_disabled = true;
+			};
+			//var selectedUser;
+			cv.summaryEdit_save = function () {
+			    
+			    if (angular.equals(cv.summaryEdit_text, ""))
+			        cv.summaryEdit_cancel();
+                else
+			    {
+			        //var text = new Firebase("https://curriculumvitae.firebaseio.com/summary/0");
+			        //text.set({ 'content': cv.summaryEdit_text });
+			        //cv.summaryEdit_text.set(sum.content);
+			        
+			        var text = new Firebase("https://curriculumvitae.firebaseio.com/summary/0");
+			        text.set({ 'content': cv.summaryEdit_text });
+			        //selectedUser = $firebaseObject(text);
+			    }
+			    cv.summaryEdit_cancel();
+			};
+			cv.summaryEdit_delete = function () {
+			    var text = new Firebase("https://curriculumvitae.firebaseio.com/summary/0");
+			    text.remove();
+			};
+			cv.summaryEdit_cancel = function () {
+			    cv.summaryEdit_disabled = false;
 			};
 			
 			//----------------------------EDIT SKILLS-----------------------------

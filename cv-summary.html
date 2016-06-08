@@ -4,7 +4,6 @@
 	</div>
 	<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 		<h3 ng-hide="cv.summary_disabled" class="text-right">
-			<img ng-click="cv.summary_Edit()" src="./img/edit.png" alt="Edit-icon" style="width:20px; cursor:pointer"></img>
 			<img ng-click="cv.summary_Add()" src="./img/add.png" alt="Add-icon" style="width:20px; cursor:pointer"></img>      
 		</h3>
 	</div>
@@ -20,9 +19,9 @@
 	</div>
 
 	<div ng-show="cv.summary_disabled">
-		<span>School name: </span>
+		<span>Content: </span>
 		<input ng-model="cv.summary_text" ng-show="cv.summary_disabled" class="form-control">
-		<button ng-click="cv.summary_save()">Save</button>
+		<button ng-click="cv.summary_save()">Add</button>
 		or
 		<button ng-click="cv.summary_cancel()">Cancel</button>
 	</div>
@@ -36,7 +35,17 @@
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
               <div class="panel-body" ng-repeat="sum in cv.summary">
-                <div ng-class="myCssVar" class="text-justify">{{sum.content}}</div>
+                <div ng-class="myCssVar" ng-hide="editorEnabled" class="text-justify">
+					{{sum.content}}
+					<img ng-hide="cv.summaryEdit_disabled" ng-click="cv.summary_Edit()" src="./img/edit.png" alt="Edit-icon" style="width:20px; cursor:pointer"></img>
+					<div ng-show="cv.summaryEdit_disabled">
+					<span>Content: </span>
+					<input ng-model="cv.summaryEdit_text" ng-show="cv.summaryEdit_disabled" class="form-control">
+					<button ng-click="cv.summaryEdit_save()">Save</button>
+					<button ng-click="cv.summaryEdit_delete()">Delete</button>
+					<button ng-click="cv.summaryEdit_cancel()">Cancel</button>
+					</div>
+				</div>
               </div>
             </div>
         </div>
