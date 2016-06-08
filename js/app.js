@@ -241,7 +241,10 @@
 					data = {
 						'content': cv.summary_text
 					}
-					cv.summary.push(data);	
+					//cv.informations.summary.push(data);
+					var abc = new Firebase("https://curriculumvitae.firebaseio.com");
+					var postsRef = abc.child("summary");
+  					var newPostRef = postsRef.push(data);
 					cv.summary_cancel();
 				}
 			};
@@ -266,7 +269,10 @@
 						'name': cv.skill_text,
 						'level': cv.skillLevel_text,
 					};
-					cv.skills.push(data);	
+					//cv.informations.skills.push(data);
+					var abc = new Firebase("https://curriculumvitae.firebaseio.com");
+					var postsRef = abc.child("skills");
+  					var newPostRef = postsRef.push(data);
 					cv.skills_cancel();
 				}
 			};
@@ -325,8 +331,10 @@
 						'to_date': cv.educationToDate_text,
 						'notes': ""
 					};
-					cv.education.push(data);
-					
+					//cv.education.push(data);
+					var abc = new Firebase("https://curriculumvitae.firebaseio.com");
+					var postsRef = abc.child("education");
+  					var newPostRef = postsRef.push(data);
 					cv.education_cancel();
 				}
 			};
@@ -431,8 +439,10 @@
 						'from_date': cv.projectFromDate_text,
 						'url': "http://"
 					};
-					cv.projects.push(data);
-					
+					//cv.informations.projects.push(data);
+					var abc = new Firebase("https://curriculumvitae.firebaseio.com");
+					var postsRef = abc.child("projects");
+  					var newPostRef = postsRef.push(data);
 					cv.Project_cancel();
 				}
 			};
@@ -514,8 +524,23 @@
 						'to_date': cv.expToDate_text,
 						'job_description': cv.expDetail_text
 					};
-					cv.experiences.push(data);
-					
+					//cv.experiences.push(data);
+					/*var abc = new Firebase("https://curriculumvitae.firebaseio.com");
+					var postsRef = abc.child("experiences");
+					//var com = postsRef.child("company");
+					//var comData = com.push(datachild);
+  					var newPostRef = postsRef.push(data);*/
+					var messageListRef = new Firebase("https://curriculumvitae.firebaseio.com");
+					var abc = messageListRef.child("experiences");
+					var newMessageRef = abc.push();
+					newMessageRef.set({ 'job_position': cv.expJob_text, 
+										'company': {'location':cv.expLocation_text,
+													'name':cv.expCompanyName_text,
+													'url':"http://"},
+										'from_date':cv.expFromDate_text,
+										'to_date':cv.expToDate_text,
+										'job_description':cv.expDetail_text
+					});
 					cv.expJob_cancel();
 				}
 			};
@@ -565,7 +590,7 @@
 				cv.expCompany_disabled = true;
 				cv.expFromDate_disabled = true;
 				cv.expToDate_disabled = true;
-				cv.expCompany_text = data.company.name;
+				cv.expCompany_text = datachild.company.name;
 				cv.expFromDate_text = data.from_date;
 				cv.expToDate_text = data.to_date;
 			};
